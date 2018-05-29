@@ -1,0 +1,292 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Vista</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Tittle</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @vista.each do |vistum| %>
+      <tr>
+        <td><%= vistum.tittle %></td>
+        <td><%= link_to 'Show', vistum %></td>
+        <td><%= link_to 'Edit', edit_vistum_path(vistum) %></td>
+        <td><%= link_to 'Destroy', vistum, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Vistum', new_vistum_path %>
+
+
+<div class="container">
+  <div class="top-bar">
+      <div class="top-bar-left">
+        <ul class="menu">
+          <li class="menu-text" id="SISTEMAPQR">SISTEMA PQR</li>
+        </ul>
+      </div>
+      <div class="top-bar-right">
+        <ul class="menu">
+          <li><a href="#">Login</a></li>
+        </ul>
+      </div>
+    </div>
+    <!-- End Top Bar -->
+    <div class="callout small">
+      <div class="text-center">
+        <h1>SISTEMA DE RECEPCIÓN DE PETICIONES</h1>
+      </div>
+    </div>
+  <div class="row">
+    <form action="">
+      <div class="medium-6 columns">
+                <label>TIPO DE IDENTIFICACIÓN
+                   <select name="TD" id="TD">
+                    <option value="CC">CEDULA DE CIUDADANIA</option>
+                    <option value="TI">TARJETA DE IDENTIDAD</option>
+                    <option value="CE">CEDULA DE EXTRANJERIA</option>
+                    <option value="NIT">NIT</option>
+                    <option value="PP">PASAPORTE</option>
+                  </select>
+                </label>  
+      </div>
+
+  </div>
+  <div class="row">
+    
+      <div class="medium-6 columns">
+        <label for="nombre">Nombres</label>
+           <input type="text" id="nombre" name="nombre" placeholder="Nombre" size="50">
+      </div>
+  
+      <div class="medium-6 columns">
+            <label for="apellido">Apellidos</label>
+             <input type="text" id="apellido" name="apellido" placeholder="Apellidos" size="50">
+      </div>
+
+      <div class="medium-6 columns">
+            <label for="email">Correo Electronico</label>
+            <input type="email" id="mail" name="mail" placeholder="nombre@hosting.com" size="30" required="required" autofocus>
+      </div>
+
+      <div class="medium-6 columns">
+            <label for="Telefono">Telefóno</label>
+            <input type="tel" id="telefono" name="telefono" required="required" placeholder="teléfono con prefijo">
+      </div>
+
+      <div class="medium-6 columns">
+            <label for="direccion">Dirección</label>
+           <textarea name="direccion" id="direccion" placeholder="calle, número, piso, ciudad" cols="30" rows="5" required="required"></textarea>
+      </div>
+
+      <div class="medium-6 columns">
+           
+                <label>País
+                  <select name="pais" id="pais">
+                    
+                    <option value="COLOMBIA">COLOMBIA</option>
+                    <option value="ARGENTINA">ARGENTINA</option>
+                    <option value="BRASIL">BRASIL</option>
+                    <option value="ITALIA">ITALIA</option> 
+                  </select> 
+                </label>  
+      
+           
+      </div>
+
+      <div class="medium-6 columns">
+           
+                <label>Ciudad
+                   <select name="ciudad" id="ciudad">
+                    <option value="SANTA MARTA">SANTA MARTA</option>
+                    <option value="BARRANQUILLA">BARRANQUILLA</option>
+                    <option value="CARTAGENA">CARTAGENA</option>
+                    <option value="VALLEDUPAR">VALLEDUPAR</option>
+                  </select>
+                </label>  
+      
+            
+      </div>
+
+<div class="medium-12 columns"> 
+
+<p>La respuesta a su solicitud le será enviada a través de la dirección de correspondencia o al correo electrónico, por lo tanto verifique que los datos se incluyeron correctamente.</p>
+</div>
+
+
+<div class="medium-6 columns">
+           
+                <label>Tipo de Solicitud
+                   <select name="solicitud" id="Solicitud">
+                    <option value="DENUNCIA">DENUNCIA</option>
+                    <option value="DERECHO_DE_PETICION">DERECHO DE PETICION</option>
+                    <option value="QUEJA">QUEJA</option>
+                    <option value="RECLAMO">RECLAMO</option>
+                    <option value="PETICION">PETICIÓN</option>
+                    <option value="SUGERENCIA">SUGERENCIA</option>
+                   </select>
+                </label>  
+  
+  
+    <label for="repuesta">Tipo de respuesta</label>
+    <input id="checkboxmsn" type="checkbox"><label for="checkboxmsn">Mensaje de texto</label>
+    <input id="checkboxemail" type="checkbox"><label for="checkboxemail">Correo electronico</label>
+    <input id="checkboxpostal" type="checkbox"><label for="checkboxpostal">Direccion postal</label>
+
+    <input type="file" name="archivo">
+           <span>Formatos válidos: Imagen (jpg,jpeg,gif,png), Texto (doc,docx,pdf), compresión de archivos (zip, rar).</span>
+
+          
+  </div>
+
+
+  <div class="medium-6 columns">
+            <label for="detalles">Detalles</label>
+           <textarea name="detalles" id="detalles" placeholder="Escriba el Detalles de su petición queja o reclamo" cols="30" rows="5" required="required" maxlength="300"></textarea>
+           <span>Puede ingresar hasta un máximo de 300 caracteres.</span>
+          
+</div>
+</div>
+
+<div class="row">
+  <div class="medium-6 columns"> 
+
+   
+    <input id="checkbox2" type="checkbox" required="required"><label for="checkbox2">Certifico que el correo electrónico ingresado en mis datos personales se encuentra vigente, de igual manera autorizo el envío de la respuesta a mi solicitud por este medio. </label>
+
+ </div>
+
+ <div class="medium-6 columns"> 
+
+    <input id="checkbox1" type="checkbox" required="required"><label for="checkbox1 ">He leído y estoy de acuerdo con los términos y condiciones de uso de datos, implementados por el Ministerio de Tecnologías de la Información y las Comunicaciones. Ver términos y condiciones. </label> <br/>
+
+      
+
+ </div>
+
+ <div class="medium-12 columns">
+   
+<input type="submit" value="Enviarjjj">
+
+
+ </div>
+
+</div>
+
+<br>
+
+
+<div class="row">
+  
+<p>Se garantiza la confidencialidad de los datos personales facilitados por los usuarios y su tratamiento de acuerdo con la legislación sobre protección de datos de carácter personal; siendo de uso exclusivo de la entidad y trasladados a terceros con autorización previa del usuario.</p>
+</div>
+
+<hr>
+  <footer>
+  <div class="callout">
+    
+  
+     <div class="ecommerce-footer">
+  <div class="ecommerce-footer-links row">
+    <div class="small-12 medium-12 large-6 columns">
+      <div class="row ecommerce-footer-links-block">
+        <div class="small-4 medium-4 large-4 columns">
+          <h5>Categories</h5>
+          <ul class="menu vertical">
+            <li><a href="#">Category 1</a></li>
+            <li><a href="#">Category 2</a></li>
+            <li><a href="#">Category 3</a></li>
+            <li><a href="#">Category 4</a></li>
+            <li><a href="#">Category 5</a></li>
+          </ul>
+        </div>
+        <div class="small-4 medium-4 large-4 columns more-categories">
+          <h5>Categories</h5>
+          <ul class="menu vertical">
+            <li><a href="#">Category 6</a></li>
+            <li><a href="#">Category 7</a></li>
+            <li><a href="#">Category 8</a></li>
+            <li><a href="#">Category 9</a></li>
+            <li><a href="#">Category 10</a></li>
+          </ul>
+        </div>
+        <div class="small-4 medium-4 large-4 columns">
+          <h5>Help</h5>
+          <ul class="menu vertical">
+            <li><a href="#">FAQs</a></li>
+            <li><a href="#">Return Policy</a></li>
+            <li><a href="#">Shipping &amp; Delivery</a></li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+    <div class="small-12 medium-12 large-6 columns">
+     <div class="row">
+       <div class="small-4 medium-4 large-4 columns">
+        <h5>My Account</h5>
+        <ul class="menu vertical">
+          <li><a href="#">Sign In</a></li>
+          <li><a href="#">Order Status</a></li>
+          <li><a href="#">My Wishlist</a></li>
+        </ul>
+      </div>
+      <div class="small-4 medium-4 large-4 columns">
+        <h5>About</h5>
+        <ul class="menu vertical">
+          <li><a href="#">Company</a></li>
+          <li><a href="#">Store Locator</a></li>
+          <li><a href="#">Team</a></li>
+          <li><a href="#">Support</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Career</a></li>
+        </ul>
+      </div>
+      <div class="small-4 medium-4 large-4 columns">
+        <h5>Social</h5>
+        <ul class="menu vertical">
+          <li><a href="#">Facebook</a></li>
+          <li><a href="#">Twitter</a></li>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">Youtube</a></li>
+        </ul>
+      </div>
+     </div>
+    </div>
+  </div>
+  <div class="ecommerce-footer-bottom-bar row">
+    <div class="small-12 medium-5 columns">
+      <ul class="bottom-links">
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms &amp; Conditions</a></li>
+      </ul>
+    </div>
+    <div class="small-12 medium-2 columns ecommerce-footer-logomark">
+      <img src="https://placehold.it/50x50"/>
+    </div>
+    <div class="small-12 medium-5 columns">
+      <div class="bottom-copyright">
+        <span>©2018 Company Name. All rights reserved.</span>
+      </div>
+    </div>
+  </div>
+</div>
+  </footer>
+</div>
+
+
+    </form>
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/vendor/what-input.js"></script>
+    <script src="js/vendor/foundation.js"></script>
+    <script src="js/app.js"></script>
+
